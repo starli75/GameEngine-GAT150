@@ -5,6 +5,7 @@
 #include "Font.h"
 #include "Text.h"
 #include "SpaceGame.h"
+#include "Texture.h"
 
 #include <iostream>
 #include <vector>
@@ -52,7 +53,7 @@ int main()
         delete objectA;
         delete objectB;
     }
-    std::cout << "===========================smart pointers==========================\n";
+    std::cout << "===========================unique pointers==========================\n";
     {
         std::unique_ptr<Object> objectA = std::make_unique<Object>();
         std::cout << objectA.get() << std::endl;
@@ -64,6 +65,28 @@ int main()
 
         objectB.reset();
     }
+    std::cout << "===========================shared pointers==========================\n";
+    std::shared_ptr<Object> objectC;
+    {
+        //You can also write it like:
+        //auto objectA  =  std::make_shared<Object>();
+        //or
+        //auto objectA  =  std::make_unique<Object>();
+        std::shared_ptr<Object> objectA = std::make_shared<Object>();
+        std::cout << objectA.get() << std::endl;
+        std::cout << objectA.use_count() << std::endl;
+        auto objectB = objectA;
+        std::cout << objectB.get() << std::endl;
+        std::cout << objectB.use_count() << std::endl;
+        objectC = objectA;
+        std::cout << objectC.get() << std::endl;
+        std::cout << objectC.use_count() << std::endl;
+    }
+    std::cout << objectC.use_count() << std::endl;
+
+
+    
+
     SetWorkingDirectory("Assets");
 
 
@@ -82,6 +105,10 @@ int main()
 
     //Photoshop
     std::vector<Vector2> points;
+
+    // create texture, using shared_ptr so texture can be shared
+    std::shared_ptr<Texture> texture = std::make_shared<Texture>();
+    texture->Load(/*TODO: texture filename, get renderer from engine*/"Textures/BlacksmithTool.jpg", Engine::Get().GetRenderer());
 
     //MAIN LOOP;
     bool quit = false;
@@ -131,6 +158,9 @@ int main()
         //RENDER
         Engine::Get().GetRenderer().SetColorFloat(0, 0, 0);
         Engine::Get().GetRenderer().Clear();
+
+        // TODO:: get engine renderer.DrawTexture(...get() texture pointer..., 30, 30);
+        Engine::Get().GetRenderer().DrawTexture(texture.get(), 30, 30);
 
         //Draw Line
         for (int i = 0; i < (int)points.size() - 1; i++) {

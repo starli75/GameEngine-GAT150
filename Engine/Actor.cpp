@@ -23,15 +23,17 @@ namespace nu
     }
 
     void Actor::Draw(const Renderer& renderer) const
-     {
-        //renderer.SetColor(m_model.GetColor().r, m_model.GetColor().g, m_model.GetColor().b);
-        renderer.DrawModel(m_model, m_transform);
+    {
+        if (m_model) //checks to make sure model is pointing at something
+        {
+            renderer.DrawModel(*m_model, m_transform);
+        }
      }
 
 
     float Actor::GetRadius() const
     {
-        return m_model.GetRadius() * m_transform.scale * 0.9f;
+        return m_model->GetRadius() * m_transform.scale * 0.9f;
     }
 
 }
