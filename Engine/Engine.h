@@ -8,6 +8,7 @@
 #include "Transform.h"
 #include "File.h"
 
+
 //systems
 #include "Renderer.h"
 #include "Input.h"
@@ -18,6 +19,7 @@
 #include "Scene.h"
 #include "Game.h"
 #include "Audio.h"
+#include "Texture.h"
 
 namespace nu {
 	class Engine {
