@@ -12,6 +12,7 @@
 #include <fmod.hpp>
 #include <map>
 #include <memory>
+#include <random>
 
 using namespace nu; //lets you take off the nu::
 
@@ -26,6 +27,12 @@ public:
     Object& operator = (const Object& object) { std::cout << "assignment\n"; return *this; }
 };
 
+uint32_t seed = 1234;
+uint32_t RNG()
+{
+    seed = (seed * 1103515245) + 12345;
+    return seed;
+}
 
 //void dosomething(std::vector<Vector2>& v) { //Refer to the already made vector instead of making another copy
 //    v[0].x = 40.0;
@@ -33,57 +40,39 @@ public:
 
 int main()
 { 
-    std::cout << "===========================object==========================\n";
-    {
-        Object objectA;
-        Object objectB (objectA);
-        Object objectC;
-        objectC = objectA;
-    }
-    std::cout << "===========================raw pointers==========================\n";
-    {
-        Object* objectA = new Object();
-        std::cout << objectA << std::endl;
-        Object* objectB = new Object(*objectA);
-        std::cout << objectB << std::endl;
-        Object* objectC = nullptr;
-        objectC = objectA;
-        std::cout << objectC << std::endl;
+    ////rand()
+    //for (size_t i = 0; i < 10; i++) std::cout << RNG() << " ";
+    //std::cout << std::endl;
 
-        delete objectA;
-        delete objectB;
-    }
-    std::cout << "===========================unique pointers==========================\n";
-    {
-        std::unique_ptr<Object> objectA = std::make_unique<Object>();
-        std::cout << objectA.get() << std::endl;
-        std::unique_ptr<Object> objectB;
-        //Transfer ownership to objectB
-        objectB = std::move(objectA);
-        //objectA is now null
-        std::cout << objectB.get() << std::endl;
+    //seed = 1234;
 
-        objectB.reset();
-    }
-    std::cout << "===========================shared pointers==========================\n";
-    std::shared_ptr<Object> objectC;
-    {
-        //You can also write it like:
-        //auto objectA  =  std::make_shared<Object>();
-        //or
-        //auto objectA  =  std::make_unique<Object>();
-        std::shared_ptr<Object> objectA = std::make_shared<Object>();
-        std::cout << objectA.get() << std::endl;
-        std::cout << objectA.use_count() << std::endl;
-        auto objectB = objectA;
-        std::cout << objectB.get() << std::endl;
-        std::cout << objectB.use_count() << std::endl;
-        objectC = objectA;
-        std::cout << objectC.get() << std::endl;
-        std::cout << objectC.use_count() << std::endl;
-    }
-    std::cout << objectC.use_count() << std::endl;
+    //for (size_t i = 0; i < 10; i++) std::cout << RNG() << " ";
+    //std::cout << std::endl;
 
+
+    //SeedRandom((unsigned int)time(NULL));
+    //for (size_t i = 0; i < 10; i++) std::cout << rand() << " ";
+    //std::cout << std::endl;
+
+
+    ////<random>
+
+    ////Makes the random seed
+    //std::random_device randomDevice;
+    //std::cout << randomDevice.min() << std::endl;
+    //std::cout << randomDevice.max() << std::endl;
+    //std::cout << randomDevice.entropy() << std::endl;
+
+    ////Makes the actual random numbers
+    //std::mt19937 generator(randomDevice());
+
+    //std::uniform_int_distribution<> dist(0, 20);
+    //for (size_t i = 0; i < 10; i++) std::cout << dist(generator) << " ";
+    //std::cout << std::endl;
+
+    //std::uniform_real_distribution<float> distReal(-10.0f, 20.0f);
+    //for (size_t i = 0; i < 10; i++) std::cout << distReal(generator) << " ";
+    //std::cout << std::endl;
 
     
 
@@ -107,8 +96,8 @@ int main()
     std::vector<Vector2> points;
 
     // create texture, using shared_ptr so texture can be shared
-    std::shared_ptr<Texture> texture = std::make_shared<Texture>();
-    texture->Load(/*TODO: texture filename, get renderer from engine*/"Textures/BlacksmithTool.jpg", Engine::Get().GetRenderer());
+    //std::shared_ptr<Texture> texture = std::make_shared<Texture>();
+    //texture->Load(/*TODO: texture filename, get renderer from engine*/"Textures/PlayerShip.png", Engine::Get().GetRenderer());
 
     //MAIN LOOP;
     bool quit = false;
@@ -160,7 +149,7 @@ int main()
         Engine::Get().GetRenderer().Clear();
 
         // TODO:: get engine renderer.DrawTexture(...get() texture pointer..., 30, 30);
-        Engine::Get().GetRenderer().DrawTexture(texture.get(), 30, 30);
+        Engine::Get().GetRenderer().DrawTexture(*Resources().Get<Texture>("Textures/PlayerShip.png", Engine::Get().GetRenderer()), 30, 30, 45.0f);
 
         //Draw Line
         for (int i = 0; i < (int)points.size() - 1; i++) {

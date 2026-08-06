@@ -1,4 +1,5 @@
 #pragma once
+#include "Resource.h"
 #include <string>
 
 struct TTF_Font;
@@ -6,7 +7,7 @@ struct TTF_Font;
 namespace nu
 {
 
-	class Font {
+	class Font : public Resource {
 	public:
 		Font() = default;
 		~Font();
