@@ -18,15 +18,11 @@ void Enemy::Update(float dt)
         nu::Vector2 forward{ 1,0 };
         forward = forward.Rotate(m_transform.rotation * nu::DegToRad);
         SetVelocity(forward * m_speed * dt);
-
-
     }
-
 
     float thrust = 0.0f;
 
     float rotate = 0.0f;
-    
 
     Actor::Update(dt);
 }
@@ -34,16 +30,16 @@ void Enemy::Update(float dt)
 void Enemy::OnCollision(Actor* other)
 {
 
-    if (other->GetTag() == "PlayerBullet" //|| (other->GetName() == "Player")
+    if (other->GetTag() == "PlayerBullet" || (other->GetName() == "Player")
         )
     {
         SetDestroyed();
-        /*if (other->GetTag() == "PlayerBullet")
-        {*/
-        other->SetDestroyed();
-        //}
+        if (other->GetTag() == "PlayerBullet")
+        {
+            other->SetDestroyed();
+            ((SpaceGame*)m_scene->GetGame())->AddPoints(100);
+        }
 
-        ((SpaceGame*)m_scene->GetGame())->AddPoints(100);
         // create particle explosion
         for (int i = 0; i < 100; i++)
         {

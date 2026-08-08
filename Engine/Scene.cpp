@@ -63,7 +63,6 @@ namespace nu
 				if (distance <= actorA->GetRadius() + actorB->GetRadius())
 				{
 					actorA->OnCollision(actorB.get());
-					actorB->OnCollision(actorA.get());
 				}
 			}
 		}

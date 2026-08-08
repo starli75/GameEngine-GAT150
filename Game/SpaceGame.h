@@ -35,7 +35,6 @@ private:
 private:
 	int m_score = 0;
 	int m_lives = 0;
-	int m_health = 0;
 	int isHit = 0;
 
 	float m_stateTimer = 0.0f;

@@ -22,12 +22,12 @@ public:
 
     void OnCollision(Actor* other);
 
-    int GetHealth() const { return m_health; }
+    int GetHealth() { return m_health; }
 
 private:
     int m_ammo = 0;
     float m_speed = 2000.0f;
-    int m_health = 200;
+    int m_health = 100;
 
 
     bool laserOn = false;

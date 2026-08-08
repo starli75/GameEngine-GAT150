@@ -11,7 +11,6 @@
 
 void Player::Update(float dt)
 {
-
     //Movement
     float thrust = 0.0f;
 
@@ -93,12 +92,13 @@ void Player::Update(float dt)
         if (other->GetName() == "Enemy")
         {
             m_health -= 25;
+            other->SetDestroyed();
 
-           /* if (m_health == 0)
-            {*/
+           if (m_health <= 0)
+            {
                 SetDestroyed();
                 ((SpaceGame*)m_scene->GetGame())->OnPlayerDead();
-           /* }*/
+           }
         }
     }
 
