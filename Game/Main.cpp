@@ -96,8 +96,8 @@ int main()
     std::vector<Vector2> points;
 
     // create texture, using shared_ptr so texture can be shared
-    //std::shared_ptr<Texture> texture = std::make_shared<Texture>();
-    //texture->Load(/*TODO: texture filename, get renderer from engine*/"Textures/PlayerShip.png", Engine::Get().GetRenderer());
+    std::shared_ptr<Texture> texture = std::make_shared<Texture>();
+    texture->Load(/*TODO: texture filename, get renderer from engine*/"Textures/PlayerShip.png", Engine::Get().GetRenderer());
 
     //MAIN LOOP;
     bool quit = false;

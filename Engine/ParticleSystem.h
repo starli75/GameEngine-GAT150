@@ -2,6 +2,7 @@
 #include "Vector2.h"
 #include "Vector3.h"
 #include <vector>
+#include <string>
 
 namespace nu
 {
@@ -24,7 +25,7 @@ namespace nu
 		void Shutdown();
 
 		void Update(float dt);
-		void Draw(const class Renderer& renderer);
+		void Draw(class Renderer& renderer, const std::string& filename = "Textures/preview.gif");
 
 		void AddParticle(const Particle& particle);
 

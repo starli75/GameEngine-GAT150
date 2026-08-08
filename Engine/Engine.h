@@ -21,6 +21,8 @@
 #include "Audio.h"
 #include "Texture.h"
 #include "Font.h"
+#include "ResourceManager.h"
+#include "Resource.h"
 
 namespace nu {
 	class Engine

@@ -7,10 +7,11 @@
 #include "Bullet.h"
 #include "Assets.h"
 #include "SpaceGame.h"
-
+#include "ParticleSystem.h"
 
 void Player::Update(float dt)
 {
+
     //Movement
     float thrust = 0.0f;
 
@@ -33,14 +34,6 @@ void Player::Update(float dt)
     nu::Vector2 velocity = forward.Rotate(m_transform.rotation * nu::DegToRad)* thrust;
     SetVelocity(velocity * dt);
 
-   /* nu::Particle particle;
-    particle.position = m_transform.position - ((forward * m_transform.scale) * 2);
-    particle.color = { 1.0f, 1.0f, 1.0f };
-    particle.lifespan = nu::RandomFloat(0.5f, 1.5f);
-    particle.velocity = { nu::RandomFloat(-200.0f, 200.0f), nu::RandomFloat(-200.0f, 200.0f) };
-
-    nu::Engine::Get().GetPS().AddParticle(particle);*/
-
     //Fire
     if (nu::Engine::Get().GetInput().GetKeyPressed(SDL_SCANCODE_L))
     {
@@ -58,7 +51,7 @@ void Player::Update(float dt)
             bulletDesc.lifespan = 1.0f;
             bulletDesc.name = "Bullet";
             bulletDesc.tag = "PlayerBullet";
-            bulletDesc.model = assets::bulletModel;
+            bulletDesc.texture = nu::Resources().Get<nu::Texture>("Textures/PlayerProjectile.png", nu::Engine::Get().GetRenderer());
             bulletDesc.transform = m_transform;
             bulletDesc.transform.scale = 2.0f;
             bulletDesc.speed = 2000.0f;
@@ -73,7 +66,7 @@ void Player::Update(float dt)
             bulletDesc.lifespan = 1.0f;
             bulletDesc.name = "Bullet";
             bulletDesc.tag = "PlayerBullet";
-            bulletDesc.model = assets::bulletModel;
+            bulletDesc.texture = nu::Resources().Get<nu::Texture>("Textures/PlayerProjectile.png", nu::Engine::Get().GetRenderer());
             bulletDesc.transform = m_transform;
             bulletDesc.transform.scale = 2.0f;
             bulletDesc.speed = 2000.0f;

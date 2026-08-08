@@ -1,6 +1,8 @@
 #include "pch.h"
 #include "ParticleSystem.h"
 #include "Renderer.h"
+#include "Texture.h"
+#include "ResourceManager.h"
 
 namespace nu
 {
@@ -40,7 +42,7 @@ namespace nu
 		}
 	}
 
-	void ParticleSystem::Draw(const Renderer& renderer)
+	void ParticleSystem::Draw(Renderer& renderer, const std::string& filename)
 	{
 		// draw all active particlee
 		for (auto& particle : m_particles)
@@ -51,7 +53,7 @@ namespace nu
 				// TODO: set color with particle color
 				renderer.SetColorFloat(particle.color.r, particle.color.g, particle.color.b);
 				// TODO: draw point with particle position
-				renderer.DrawPoint(particle.position.x, particle.position.y);
+				renderer.DrawTexture(*Resources().Get<Texture>(filename, renderer), particle.position.x, particle.position.y);
 			}
 		}
 	}
