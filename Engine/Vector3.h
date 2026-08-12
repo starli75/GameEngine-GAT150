@@ -19,8 +19,8 @@ namespace nu
 		Vector3(float x, float y, float z) : x{ x }, y{ y }, z{ z } {}
 		Vector3(float v) : x{ v }, y{ v }, z{ v } {}
 
-		float  operator [] (unsigned int i) const { assert(i < 2); return (&x)[i]; }
-		float& operator [] (unsigned int i) { assert(i < 2); return (&x)[i]; }
+		float  operator [] (unsigned int i) const { assert(i < 3); return (&x)[i]; }
+		float& operator [] (unsigned int i) { assert(i < 3); return (&x)[i]; }
 
 		bool operator == (const Vector3& v) const { return (this->x == v.x && this->y == v.y && this->z == v.z); }
 		bool operator != (const Vector3& v) const { return (this->x != v.x || this->y != v.y || this ->z != v.z); }

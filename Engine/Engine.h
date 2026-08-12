@@ -7,6 +7,9 @@
 #include "MathUtils.h"
 #include "Transform.h"
 #include "File.h"
+#include "StringUtils.h"
+
+#include "Factory.h"
 
 
 //systems
@@ -23,6 +26,7 @@
 #include "Font.h"
 #include "ResourceManager.h"
 #include "Resource.h"
+#include "Json.h"
 
 namespace nu {
 	class Engine

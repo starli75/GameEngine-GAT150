@@ -1,5 +1,5 @@
 #pragma once
-
+#include "Object.h"
 #include "Transform.h"
 #include "Model.h"
 #include "Resource.h"
@@ -25,7 +25,7 @@ namespace nu
         res_t<Texture> texture;
     };
 
-    class Actor
+    class Actor : public Object
     {
     public:
         Actor() = default;
