@@ -19,8 +19,33 @@ using namespace nu; //lets you take off the nu::
 
 int main()
 { 
-
     SetWorkingDirectory("Assets");
+    Factory::Instance().Register<Actor>("Actor");
+    Factory::Instance().Register<Object>("Object");
+    Factory::Instance().Register<Player>("Player");
+
+    auto actor = Factory::Instance().Create<Actor>("Actor");
+    auto object = Factory::Instance().Create("Object");
+
+    std::cout << actor->IsActive() << std::endl;
+    std::cout << object->IsActive() << std::endl;
+
+    auto player = Factory::Instance().Create<Player>("Player");
+
+    json::document_t document;
+    if (json::Load("data/scene.json", document))
+    {
+        player->Read(document);
+        std::cout << player->GetName() << std::endl;
+        std::cout << player->GetTag() << std::endl;
+
+        std::cout << player->GetTransform().rotation << std::endl;
+        std::cout << player->GetSpeed() << std::endl;
+    }
+
+
+    return 0;
+
 
     
     // load the json data from a file

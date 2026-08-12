@@ -62,8 +62,8 @@ namespace nu
                 return std::unique_ptr<T>();
             }
 
-            auto creator = m_registry[lowerName];
-            auto object = creator->Create();
+            auto iter = m_registry.find(lowerName);
+            auto object = iter->second->Create();
 
             T* derived = dynamic_cast<T*>(object.get());
             if (derived)

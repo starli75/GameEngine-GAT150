@@ -22,7 +22,12 @@ public:
 
     void OnCollision(Actor* other);
 
+    virtual void Read(const nu::json::value_t& value) override;
+
     int GetHealth() { return m_health; }
+
+    float GetSpeed() const { return m_speed; }
+
 
 private:
     int m_ammo = 0;
