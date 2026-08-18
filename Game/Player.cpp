@@ -9,6 +9,8 @@
 #include "SpaceGame.h"
 #include "ParticleSystem.h"
 
+FACTORY_REGISTER(Player);
+
 void Player::Update(float dt)
 {
     //Movement
@@ -46,7 +48,13 @@ void Player::Update(float dt)
     case true:
         if (nu::Engine::Get().GetInput().GetKeyDown(SDL_SCANCODE_SPACE))
         {
-            BulletDesc bulletDesc;
+            auto bullet = nu::Factory::Instance().Create<Bullet>("BulletPrototype");
+            bullet->SetTransform(m_transform);
+            bullet->SetScale(2.0f);
+            bullet->SetTag("PlayerBullet");
+
+            m_scene->AddActor(std::move(bullet));
+            /*BulletDesc bulletDesc;
             bulletDesc.lifespan = 1.0f;
             bulletDesc.name = "Bullet";
             bulletDesc.tag = "PlayerBullet";
@@ -55,13 +63,20 @@ void Player::Update(float dt)
             bulletDesc.transform.scale = 2.0f;
             bulletDesc.speed = 2000.0f;
 
-            m_scene->AddActor(std::move(std::make_unique<Bullet>(bulletDesc)));
+            m_scene->AddActor(std::move(std::make_unique<Bullet>(bulletDesc)));*/
         }
         break;
     case false:
         if (nu::Engine::Get().GetInput().GetKeyPressed(SDL_SCANCODE_SPACE))
         {
-            BulletDesc bulletDesc;
+            auto bullet = nu::Factory::Instance().Create<Bullet>("BulletPrototype");
+            bullet->SetTransform(m_transform);
+            bullet->SetScale(2.0f);
+            bullet->SetTag("PlayerBullet");
+
+            m_scene->AddActor(std::move(bullet));
+
+            /*BulletDesc bulletDesc;
             bulletDesc.lifespan = 1.0f;
             bulletDesc.name = "Bullet";
             bulletDesc.tag = "PlayerBullet";
@@ -70,7 +85,7 @@ void Player::Update(float dt)
             bulletDesc.transform.scale = 2.0f;
             bulletDesc.speed = 2000.0f;
 
-            m_scene->AddActor(std::move(std::make_unique<Bullet>(bulletDesc)));
+            m_scene->AddActor(std::move(std::make_unique<Bullet>(bulletDesc)));*/
         }
         break;
     }
@@ -106,5 +121,6 @@ void Player::Update(float dt)
     {
         Actor::Read(value);
         JSON_READ_NAME(value, "speed", m_speed);
+        //JSON_READ_NAME(value, "health", m_health);
     }
 

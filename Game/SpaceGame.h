@@ -21,7 +21,8 @@ public:
 	Game(scene)
 	{}
 
-	bool Initialize() override;
+	//Deleted override to fix an issue, dont know if it worked
+	bool Initialize();
 
 	void Update(float dt) override;
 	void Draw(class nu::Renderer& renderer) override;

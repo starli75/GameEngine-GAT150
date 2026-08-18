@@ -24,7 +24,7 @@ public:
 
     virtual void Read(const nu::json::value_t& value) override;
 
-    int GetHealth() { return m_health; }
+    int GetHealth() { return m_health; } //read access violation here; says "this was nullptr"
 
     float GetSpeed() const { return m_speed; }
 

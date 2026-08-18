@@ -1,5 +1,6 @@
 #pragma once
 #include "Object.h"
+#include "Component.h"
 #include "Transform.h"
 #include "Model.h"
 #include "Resource.h"
@@ -34,10 +35,13 @@ namespace nu
             m_transform{ actorDesc.transform },
             m_velocity{ actorDesc.velocity },
             m_damping{ actorDesc.damping },
-            m_model{ actorDesc.model },
-            m_lifespan{ actorDesc.lifespan},
-            m_texture{ actorDesc.texture }
+            m_lifespan{ actorDesc.lifespan}
+            
         {}
+
+        Actor(const Actor& other);
+
+        CLASS_PROTOTYPE(Actor)
 
         virtual void Update(float dt);
         virtual void Draw(const class Renderer& renderer) const;
@@ -45,6 +49,7 @@ namespace nu
         virtual void OnCollision(Actor* other) {}
 
         const Transform& GetTransform() const { return m_transform; }
+        void SetTransform(const Transform& transform) { m_transform = transform; }
         void SetPosition(const Vector2& position) { m_transform.position = position; }
         void SetRotation(const float rotation) { m_transform.rotation = rotation; }
         void SetScale(const float scale) { m_transform.scale = scale; }
@@ -55,6 +60,7 @@ namespace nu
 
 
         const std::string& GetName() const { return m_name; }
+        void SetTag(const std::string& tag) { m_tag = tag; }
         const std::string& GetTag() const { return m_tag; }
 
         Scene* GetScene() { return m_scene; }
@@ -65,6 +71,21 @@ namespace nu
         bool GetDestroyed() const { return m_destroyed; }
 
         virtual void Read(const json::value_t& value) override;
+
+        void AddComponent(std::unique_ptr<Component> component);
+
+        template<std::derived_from<Component> T>
+        inline T* GetComponent()
+        {
+            for (auto& component : m_components)
+            {
+                auto result = dynamic_cast<T*>(component.get());
+                if (result)
+                    return result;
+            }
+
+            return nullptr;
+        }
 
         friend Scene;
 
@@ -78,9 +99,7 @@ namespace nu
         float m_lifespan = 0.0f;
         bool m_destroyed = false;
 
-        res_t<Model> m_model;
-        res_t<Texture> m_texture;
-
+        std::vector<std::unique_ptr<Component>> m_components;
 
         Scene* m_scene{ nullptr };
         float f{ 5.0f };

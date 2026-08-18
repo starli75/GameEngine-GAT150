@@ -1,6 +1,8 @@
 #include "pch.h"
 #include "Scene.h"
 #include "Actor.h"
+#include "Factory.h"
+#include "ColliderComponent.h"
 
 namespace nu
 
@@ -15,6 +17,56 @@ namespace nu
 	void Scene::RemoveAllActors()
 	{
 		m_actors.clear();
+	}
+
+	bool Scene::Load(const std::string& sceneName)
+	{
+		json::document_t document;
+		if (json::Load(sceneName, document))
+		{
+			if (JSON_HAS_NAME(document, "actors"))
+			{
+				for (auto& actorValue : JSON_GET_NAME(document, "actors").GetArray())
+				{
+					//Get actor type
+					std::string typeName;
+					JSON_READ_NAME(actorValue, "type", typeName);
+
+					//Create actor of type
+					auto actor = Factory::Instance().Create<Actor>("Player");
+
+					//Read actor JSON
+					actor->Read(document);
+
+					//Check if prototype
+					bool prototype = false;
+					JSON_READ(actorValue, prototype);
+
+					if (prototype)
+					{
+						//Add prototype to factory registry
+						std::string name;
+						JSON_READ(actorValue, name);
+						Factory::Instance().RegisterPrototype<Actor>("PlayerPrototype", std::move(actor));
+					}
+					else
+					{
+						AddActor(std::move(actor));
+					}
+
+				}
+			}
+			/*std::string type;
+			JSON_READ(document, type);*/
+
+			return true;
+		}
+		else 
+		{
+			return false;
+
+		}
+
 	}
 
 	void Scene::Update(float dt)
@@ -54,17 +106,23 @@ namespace nu
 	{
 		for (auto& actorA : m_actors)
 		{
-			
 			for (auto& actorB : m_actors)
 			{
-				if (actorA == actorB) {continue;}
+				if (actorA == actorB || actorA->m_destroyed || actorB->m_destroyed) continue;
 
-				float distance = (actorA->m_transform.position - actorB->m_transform.position).Length();
-				if (distance <= actorA->GetRadius() + actorB->GetRadius())
+				auto colliderA = actorA->GetComponent<ColliderComponent>();
+				auto colliderB = actorB->GetComponent<ColliderComponent>();
+
+				if (!colliderA || !colliderB) continue;
+
+				//check collision
+				if (colliderA->CheckCollision(*colliderB))
 				{
 					actorA->OnCollision(actorB.get());
+					actorB->OnCollision(actorA.get());
 				}
 			}
 		}
+
 	}
 }

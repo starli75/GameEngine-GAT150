@@ -16,6 +16,7 @@ bool SpaceGame::Initialize()
 
 	m_scene = new Scene();
 	m_scene->SetGame(this);
+	m_scene->Load("data/scene.json");
 
 	std::string fontName = "fonts/Blaster.ttf";
 	std::string titleIDString = "title_font";
@@ -125,22 +126,30 @@ void SpaceGame::OnPlayerDead()
 
 void SpaceGame::SpawnPlayer()
 {
-	PlayerDesc playerDesc;
-	playerDesc.name = "Player";
-	
-	/*playerDesc.model = assets::playerModel;*/
-	playerDesc.texture = Resources().Get<Texture>("Textures/PlayerShip.png", Engine::Get().GetRenderer());
-	playerDesc.transform = Transform{ Vector2{ 640.0f, 512.0f }, 0.0f, 1.0f };
-	playerDesc.velocity = Vector2{ 0.0f, 0.0f };
-	playerDesc.damping = 1.0f;
-	playerDesc.speed = 150000.0f;
+	auto actor = Factory::Instance().Create<Actor>("PlayerPrototype");
+	actor->SetPosition(nu::Vector2{ 30.0f, 30.0f });
 
-	std::unique_ptr<Player> player = std::make_unique<Player>( playerDesc );
-	m_scene->AddActor(std::move(player));
+	m_scene->AddActor(std::move(actor));
 }
 
 void SpaceGame::SpawnEnemy()
 {
+	int enemyIndex = nu::RandomInt(2);
+	if (enemyIndex == 0)
+	{
+		auto actor = Factory::Instance().Create<Actor>("PlayerPrototype");
+		actor->SetPosition({nu::RandomFloat(1024.0f), nu::RandomFloat(800.0f) });
+
+		m_scene->AddActor(std::move(actor));
+	}
+	else if (enemyIndex == 1)
+	{
+		auto actor = Factory::Instance().Create<Actor>("PlayerPrototype");
+		actor->SetPosition({ nu::RandomFloat(1024.0f), nu::RandomFloat(800.0f) });
+
+		m_scene->AddActor(std::move(actor));
+	}
+	/*
 	EnemyDesc enemyDesc;
 	enemyDesc.name = "Enemy";
 	//enemyDesc.model = assets::enemyModel;
@@ -152,4 +161,5 @@ void SpaceGame::SpawnEnemy()
 
 
 	m_scene->AddActor(std::move(std::make_unique<Enemy>(enemyDesc)));
+	*/
 }
