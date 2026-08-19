@@ -33,10 +33,10 @@ namespace nu
 					JSON_READ_NAME(actorValue, "type", typeName);
 
 					//Create actor of type
-					auto actor = Factory::Instance().Create<Actor>("Player");
+					auto actor = Factory::Instance().Create<Actor>(typeName);
 
 					//Read actor JSON
-					actor->Read(document);
+					actor->Read(actorValue);
 
 					//Check if prototype
 					bool prototype = false;
@@ -47,7 +47,7 @@ namespace nu
 						//Add prototype to factory registry
 						std::string name;
 						JSON_READ(actorValue, name);
-						Factory::Instance().RegisterPrototype<Actor>("PlayerPrototype", std::move(actor));
+						Factory::Instance().RegisterPrototype<Actor>(name, std::move(actor));
 					}
 					else
 					{

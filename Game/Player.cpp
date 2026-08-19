@@ -120,7 +120,7 @@ void Player::Update(float dt)
     void Player::Read(const nu::json::value_t& value)
     {
         Actor::Read(value);
+        JSON_READ_NAME(value, "health", m_health);
         JSON_READ_NAME(value, "speed", m_speed);
-        //JSON_READ_NAME(value, "health", m_health);
     }
 

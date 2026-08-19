@@ -48,6 +48,7 @@ void SpaceGame::Update(float dt)
 
 		break;
 	case SpaceGame::GameState::StartLevel:
+		m_scene->RemoveAllActors();
 		SpawnPlayer();
 		m_gamestate = GameState::Game;
 		break;
@@ -88,16 +89,16 @@ void SpaceGame::Draw(nu::Renderer& renderer)
 	case SpaceGame::GameState::StartGame:
 		break;
 	case SpaceGame::GameState::StartLevel:
-		m_scene->RemoveAllActors();
-		SpawnPlayer();
-		m_gamestate = GameState::Game;
+		//m_scene->RemoveAllActors();
+		//SpawnPlayer();
+		//m_gamestate = GameState::Game;
 		break;
 	case SpaceGame::GameState::Game:
 		//Draw score and lives
 		m_scoreText->Create(renderer, "Score: " + std::to_string(m_score), { 1.0f, 1.0f, 1.0f });
 		m_scoreText->Draw(renderer, 30.0f, 30.0f);
 
-		m_scoreText->Create(renderer, "Health: " + std::to_string(dynamic_cast<Player*>(m_scene->GetActorByName("Player"))->GetHealth()), {1.0f, 1.0f, 1.0f});
+		m_scoreText->Create(renderer, "Health: " + std::to_string(dynamic_cast<Player*>(m_scene->GetActorByName("PlayerPrototype"))->GetHealth()), {1.0f, 1.0f, 1.0f});
 		m_scoreText->Draw(renderer, 30.0f, 60.0f);
 
 		m_scoreText->Create(renderer, "Lives: " + std::to_string(m_lives), { 1.0f, 1.0f, 1.0f });
@@ -137,14 +138,14 @@ void SpaceGame::SpawnEnemy()
 	int enemyIndex = nu::RandomInt(2);
 	if (enemyIndex == 0)
 	{
-		auto actor = Factory::Instance().Create<Actor>("PlayerPrototype");
+		auto actor = Factory::Instance().Create<Actor>("EnemyPrototype");
 		actor->SetPosition({nu::RandomFloat(1024.0f), nu::RandomFloat(800.0f) });
 
 		m_scene->AddActor(std::move(actor));
 	}
 	else if (enemyIndex == 1)
 	{
-		auto actor = Factory::Instance().Create<Actor>("PlayerPrototype");
+		auto actor = Factory::Instance().Create<Actor>("EnemyPrototype");
 		actor->SetPosition({ nu::RandomFloat(1024.0f), nu::RandomFloat(800.0f) });
 
 		m_scene->AddActor(std::move(actor));

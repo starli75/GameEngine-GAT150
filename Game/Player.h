@@ -4,6 +4,7 @@
 struct PlayerDesc : public nu::ActorDesc
 {
     float speed;
+    int health;
 
 };
 
@@ -15,6 +16,7 @@ public:
     Player() = default;
     Player(const PlayerDesc& playerDesc) :
         Actor{ playerDesc },
+        m_health{ playerDesc.health },
         m_speed{ playerDesc.speed }
     {}
 
@@ -32,7 +34,7 @@ public:
 private:
     int m_ammo = 0;
     float m_speed = 2000.0f;
-    int m_health = 100;
+    int m_health = 1;
 
 
     bool laserOn = false;
