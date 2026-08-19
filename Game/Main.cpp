@@ -21,7 +21,7 @@ using namespace nu; //lets you take off the nu::
 int main()
 { 
     SetWorkingDirectory("Assets");
-    Factory::Instance().Register<Object>("Object");
+    //Factory::Instance().Register<Object>("Object");
    /* Factory::Instance().Register<Actor>("Actor");
     Factory::Instance().Register<Player>("Player");
     Factory::Instance().Register<Enemy>("Enemy");

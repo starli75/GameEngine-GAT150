@@ -47,6 +47,7 @@ namespace nu
 						//Add prototype to factory registry
 						std::string name;
 						JSON_READ(actorValue, name);
+						//Data disappears here, becomes only actor data
 						Factory::Instance().RegisterPrototype<Actor>(name, std::move(actor));
 					}
 					else
@@ -85,7 +86,7 @@ namespace nu
 		//Add pending actors
 		for (auto& actor : m_pendingActors)
 		{
-			m_actors.push_back(move(actor));
+			m_actors.push_back(std::move(actor));
 
 		}
 		m_pendingActors.clear();

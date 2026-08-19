@@ -101,6 +101,7 @@ void SpaceGame::Draw(nu::Renderer& renderer)
 		auto test = m_scene->GetActorByName<Player>("PlayerPrototype");
 		if (test) 
 		{
+			//Player* currentPlayer = static_cast<Player*>(test);
 			m_scoreText->Create(renderer, "Health: " + std::to_string(test->GetHealth()), { 1.0f, 1.0f, 1.0f });
 			m_scoreText->Draw(renderer, 30.0f, 60.0f);
 		}
@@ -133,7 +134,7 @@ void SpaceGame::OnPlayerDead()
 void SpaceGame::SpawnPlayer()
 {
 	auto actor = Factory::Instance().Create<Actor>("PlayerPrototype");
-	actor->SetPosition(nu::Vector2{ 30.0f, 30.0f });
+	//actor->SetPosition(nu::Vector2{ 30.0f, 30.0f });
 
 	m_scene->AddActor(std::move(actor));
 }

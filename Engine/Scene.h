@@ -33,7 +33,7 @@ namespace nu {
 		std::vector<std::unique_ptr<Actor>> m_actors;
 		std::vector<std::unique_ptr<Actor>> m_pendingActors;
 
-		class Game* m_game = nullptr;
+		class Game* m_game{ nullptr };
 
 	};
 
