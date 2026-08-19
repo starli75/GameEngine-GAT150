@@ -93,17 +93,22 @@ void SpaceGame::Draw(nu::Renderer& renderer)
 		//SpawnPlayer();
 		//m_gamestate = GameState::Game;
 		break;
-	case SpaceGame::GameState::Game:
+	case SpaceGame::GameState::Game: {
 		//Draw score and lives
 		m_scoreText->Create(renderer, "Score: " + std::to_string(m_score), { 1.0f, 1.0f, 1.0f });
 		m_scoreText->Draw(renderer, 30.0f, 30.0f);
 
-		m_scoreText->Create(renderer, "Health: " + std::to_string(dynamic_cast<Player*>(m_scene->GetActorByName("PlayerPrototype"))->GetHealth()), {1.0f, 1.0f, 1.0f});
-		m_scoreText->Draw(renderer, 30.0f, 60.0f);
+		auto test = m_scene->GetActorByName<Player>("PlayerPrototype");
+		if (test) 
+		{
+			m_scoreText->Create(renderer, "Health: " + std::to_string(test->GetHealth()), { 1.0f, 1.0f, 1.0f });
+			m_scoreText->Draw(renderer, 30.0f, 60.0f);
+		}
 
 		m_scoreText->Create(renderer, "Lives: " + std::to_string(m_lives), { 1.0f, 1.0f, 1.0f });
-		m_scoreText->Draw(renderer, (float) renderer.GetWidth() - 120, 30.0f);
+		m_scoreText->Draw(renderer, (float)renderer.GetWidth() - 120, 30.0f);
 		break;
+	}
 	case SpaceGame::GameState::GameOver:
 		//Draw game over
 		break;
