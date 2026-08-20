@@ -104,7 +104,7 @@ void Player::Update(float dt)
 }
     void Player::OnCollision(Actor* other)
     {
-        if (other->GetName() == "Enemy")
+        if (other->GetName() == "EnemyPrototype")
         {
             m_health -= 25;
             other->SetDestroyed();

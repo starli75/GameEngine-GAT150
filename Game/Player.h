@@ -11,6 +11,7 @@ struct PlayerDesc : public nu::ActorDesc
 class Player : public nu::Actor
 {
 public:
+    CLASS_PROTOTYPE(Player)
     static Player& Get() { static Player player; return player; }
 
     Player() = default;

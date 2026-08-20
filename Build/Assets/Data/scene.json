@@ -32,7 +32,7 @@
       "name": "EnemyPrototype",
       "tag": "Enemy",
       "active": true,
-      "speed": 150000.0,
+      "speed": 30000.0,
       "points": 50,
       "health":  1,
       "damping": 3,
@@ -60,7 +60,7 @@
       "tag": "Bullet",
       "active": true,
       "lifespan":  1.0,
-      "speed": 150000.0,
+      "speed": 1500.0,
       "damping": 3,
       "texture": "Textures/PlayerProjectile.png",
       "transform": {
