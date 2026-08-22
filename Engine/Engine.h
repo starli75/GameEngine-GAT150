@@ -27,6 +27,8 @@
 #include "ResourceManager.h"
 #include "Resource.h"
 #include "Json.h"
+#include "Physics.h"
+
 
 namespace nu {
 	class Engine
@@ -45,6 +47,8 @@ namespace nu {
 		Audio& GetAudio() { return m_audio; }
 		ParticleSystem& GetPS() { return m_particleSystem; }
 
+		Physics& GetPhysics() { return m_physics; }
+
 	private:
 		Engine() = default;
 	private:
@@ -53,5 +57,6 @@ namespace nu {
 		Time m_time;
 		Audio m_audio;
 		ParticleSystem m_particleSystem;
+		Physics m_physics;
 	};
 }
