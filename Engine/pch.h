@@ -26,5 +26,8 @@
 #include <SDL3_image/SDL_image.h>
 #include <SDL3_ttf/SDL_ttf.h>
 #include <fmod.hpp>
+#include <rapidjson/istreamwrapper.h>
+#include <rapidjson/error/en.h> 
+#include <fmod_errors.h>
 
 #endif //PCH_H

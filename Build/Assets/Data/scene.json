@@ -1,12 +1,33 @@
 {
   "actors": [
     {
+      "type": "Actor",
+      "prototype": false,
+      "speed": 150000.0,
+      "name": "Bat",
+      "tag": "Enemy",
+      "active": true,
+      "transform": {
+        "position": [ 200, 200 ],
+        "rotation": 0,
+        "scale": 3
+      }
+    },
+    {
+      "components": [
+        {
+          "type": "SpriteRendererComponent",
+          "texture": "Textures/bat.png"
+        }
+      ]
+    },
+    {
       "type": "Player",
       "prototype": true,
       "name": "PlayerPrototype",
       "tag": "Player",
       "active": true,
-      "health":  100,
+      "health": 100,
       "speed": 150000.0,
       "damping": 3,
       "texture": "Textures/PlayerShip.png",
@@ -34,7 +55,7 @@
       "active": true,
       "speed": 30000.0,
       "points": 50,
-      "health":  1,
+      "health": 1,
       "damping": 3,
       "transform": {
         "position": [ 640, 512 ],
@@ -59,7 +80,7 @@
       "name": "BulletPrototype",
       "tag": "Bullet",
       "active": true,
-      "lifespan":  1.0,
+      "lifespan": 1.0,
       "speed": 1500.0,
       "damping": 3,
       "texture": "Textures/PlayerProjectile.png",
@@ -79,6 +100,6 @@
         }
       ]
     }
-    
+
   ]
 }

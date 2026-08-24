@@ -1,3 +1,4 @@
+#include "pch.h"
 #include "SpaceGame.h"
 #include "Engine.h"
 #include "Player.h"
@@ -5,8 +6,6 @@
 #include "Assets.h"
 #include "Scene.h"
 
-#include <memory>
-#include <string>
 
 using namespace nu;
 

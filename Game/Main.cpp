@@ -1,3 +1,4 @@
+#include "pch.h"
 #include "Engine.h"
 #include "Player.h"
 #include "Enemy.h"
@@ -6,15 +7,6 @@
 #include "Text.h"
 #include "SpaceGame.h"
 #include "Bullet.h"
-
-
-#include <iostream>
-#include <vector>
-#include <fmod.hpp>
-#include <map>
-#include <memory>
-#include <random>
-#include <fstream>
 
 using namespace nu; //lets you take off the nu::
 
