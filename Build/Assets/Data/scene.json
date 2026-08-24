@@ -11,9 +11,7 @@
         "position": [ 200, 200 ],
         "rotation": 0,
         "scale": 3
-      }
-    },
-    {
+      },
       "components": [
         {
           "type": "SpriteRendererComponent",
@@ -21,6 +19,7 @@
         }
       ]
     },
+    
     {
       "type": "Player",
       "prototype": true,

@@ -10,7 +10,7 @@ namespace nu
 	{
 	public:
 		bool Load(const std::string& filename, class Renderer& renderer);
-		Rect GetFrameRect(unsigned int frame);
+		Rect GetFrameRect(int frame);
 
 	private:
 		int m_numColumns = 0;

@@ -31,7 +31,7 @@ namespace nu
 		int GetWidth() const { return m_width; }
 		int GetHeight() const { return m_height; }
 
-		friend class TextRenderer;
+		friend class Text;
 		friend class Texture;
 
 
