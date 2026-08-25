@@ -7,7 +7,7 @@
 #include "Math/MathUtils.h"
 #include "Math/Transform.h"
 #include "Core/File.h"
-#include "Json.h"
+#include "Serialization/Json.h"
 #include "Core/StringUtils.h"
 
 #include "Core/Factory.h"
@@ -16,7 +16,7 @@
 //systems
 #include "Audio/Audio.h"
 #include "Renderer/Renderer.h"
-#include "Input.h"
+#include "Input/Input.h"
 #include "Core/GameTime.h"
 #include "Renderer/ParticleSystem.h"
 

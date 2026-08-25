@@ -25,9 +25,6 @@
     <Filter Include="Math">
       <UniqueIdentifier>{0152c780-5034-44e5-8033-b1f9cfbd388d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Audio">
-      <UniqueIdentifier>{9952a787-4219-42f0-8848-a83217384fb4}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Renderer">
       <UniqueIdentifier>{5d7839b1-3ad2-4080-8f4a-065632926cd9}</UniqueIdentifier>
     </Filter>
@@ -36,6 +33,15 @@
     </Filter>
     <Filter Include="Resources">
       <UniqueIdentifier>{f8790daf-80d5-4cd8-824c-385158489b0a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Audio">
+      <UniqueIdentifier>{4a74faa7-8321-4f00-9cd0-7601daeb2238}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Input">
+      <UniqueIdentifier>{1caae8b5-547a-4bd5-954b-c901cfa65d41}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Serialization">
+      <UniqueIdentifier>{c9e1ae79-9f32-4897-b756-43ab31e8a142}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -46,12 +52,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Engine.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Input.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Json.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Components\RendererComponent.h">
@@ -147,9 +147,6 @@
     <ClInclude Include="Physics\Physics.h">
       <Filter>Physics</Filter>
     </ClInclude>
-    <ClInclude Include="Audio\Audio.h">
-      <Filter>Audio</Filter>
-    </ClInclude>
     <ClInclude Include="Components\SpriteAnimationsRendererComponent.h">
       <Filter>Components</Filter>
     </ClInclude>
@@ -159,18 +156,21 @@
     <ClInclude Include="Components\RigidBodyPhysicsComponent.h">
       <Filter>Components</Filter>
     </ClInclude>
+    <ClInclude Include="Audio\Audio.h">
+      <Filter>Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="Input\Input.h">
+      <Filter>Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Serialization\Json.h">
+      <Filter>Serialization</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="pch.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Input.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Json.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Components\SpriteRendererComponent.cpp">
@@ -218,9 +218,6 @@
     <ClCompile Include="Physics\Physics.cpp">
       <Filter>Physics</Filter>
     </ClCompile>
-    <ClCompile Include="Audio\Audio.cpp">
-      <Filter>Audio</Filter>
-    </ClCompile>
     <ClCompile Include="Components\SpriteAnimationsRendererComponent.cpp">
       <Filter>Components</Filter>
     </ClCompile>
@@ -229,6 +226,18 @@
     </ClCompile>
     <ClCompile Include="Components\RigidBodyPhysicsComponent.cpp">
       <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Actor.cpp">
+      <Filter>Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="Audio\Audio.cpp">
+      <Filter>Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="Input\Input.cpp">
+      <Filter>Input</Filter>
+    </ClCompile>
+    <ClCompile Include="Serialization\Json.cpp">
+      <Filter>Serialization</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
