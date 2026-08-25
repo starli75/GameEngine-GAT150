@@ -3,15 +3,15 @@
 
 namespace nu
 {
-	bool Audio::Initialize() 
+	bool Audio::Initialize()
 	{
 		FMOD_RESULT result = FMOD::System_Create(/*TODO: pass address of m_fmodSystem*/ &m_fmodSystem);
-		if (!CheckFMODResult(result)) 
+		if (!CheckFMODResult(result))
 			return false;
 
 		void* extradriverdata = nullptr;
 		result = m_fmodSystem->init(32, FMOD_INIT_NORMAL, extradriverdata);
-		if (!CheckFMODResult(result)) 
+		if (!CheckFMODResult(result))
 			return false;
 
 		return true;
@@ -39,7 +39,7 @@ namespace nu
 
 		// create sound from key
 		FMOD::Sound* sound = nullptr;
-		FMOD_RESULT result = m_fmodSystem->createSound(/*TODO: pass parameters to create sound*/filename.c_str(),FMOD_DEFAULT, 0, &sound);
+		FMOD_RESULT result = m_fmodSystem->createSound(/*TODO: pass parameters to create sound*/filename.c_str(), FMOD_DEFAULT, 0, &sound);
 		if (!CheckFMODResult(result))
 			return false;
 

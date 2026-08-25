@@ -2,7 +2,7 @@
 #include "ParticleSystem.h"
 #include "Renderer.h"
 #include "Texture.h"
-#include "ResourceManager.h"
+#include "Resources/ResourceManager.h"
 
 namespace nu
 {

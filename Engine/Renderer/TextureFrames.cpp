@@ -47,9 +47,9 @@ namespace nu
 
 		return true;
 	}
-	Rect TextureFrames::GetFrameRect(int frame)
+	Rect TextureFrames::GetFrameRect(unsigned int frame)
 	{
-		if (frame < 0 || frame > m_totalFrames)
+		if (frame > m_totalFrames)
 		{
 			std::cerr << "Texture Frames frame " << frame << " is out of bounds. Now set to 0\n";
 			frame = 0;

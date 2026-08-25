@@ -1,6 +1,6 @@
 #include "pch.h"
 #include "Json.h"
-#include "File.h"
+#include "Core/File.h"
 
 namespace nu::json
 {
@@ -52,6 +52,21 @@ namespace nu::json
 
         // get the data
         data = value[name.c_str()].GetInt();
+
+        return true;
+    }
+
+    bool Read(const value_t& value, const std::string& name, unsigned int& data, bool required)
+    {
+        if (!value.HasMember(name.c_str()) || !value[name.c_str()].IsUint())
+        {
+            if (required)
+                std::cerr << "Could not read JSON value (int):" << name << std::endl;
+            return false;
+        }
+
+        // get the data
+        data = value[name.c_str()].GetUint();
 
         return true;
     }

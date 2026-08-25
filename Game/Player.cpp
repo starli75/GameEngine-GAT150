@@ -1,13 +1,13 @@
 #include "pch.h"
 
 #include "Player.h"
-#include "Renderer.h"
+#include "Renderer/Renderer.h"
 #include "Engine.h"
-#include "Model.h"
+#include "Renderer/Model.h"
 #include "Bullet.h"
 #include "Assets.h"
 #include "SpaceGame.h"
-#include "ParticleSystem.h"
+#include "Renderer/ParticleSystem.h"
 
 FACTORY_REGISTER(Player);
 

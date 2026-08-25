@@ -1,7 +1,7 @@
 #pragma once
 #include "Font.h"
 #include "Math/Vector3.h"
-#include "Resource.h"
+#include "Resources/Resource.h"
 
 struct SDL_Texture;
 

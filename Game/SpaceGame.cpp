@@ -4,7 +4,7 @@
 #include "Player.h"
 #include "Enemy.h"
 #include "Assets.h"
-#include "Scene.h"
+#include "Framework/Scene.h"
 
 
 using namespace nu;

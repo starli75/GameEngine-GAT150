@@ -3,8 +3,8 @@
 #include "Player.h"
 #include "Enemy.h"
 #include "Assets.h"
-#include "Font.h"
-#include "Text.h"
+#include "Renderer/Font.h"
+#include "Renderer/Text.h"
 #include "SpaceGame.h"
 #include "Bullet.h"
 

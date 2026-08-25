@@ -14,8 +14,10 @@
       },
       "components": [
         {
-          "type": "SpriteRendererComponent",
-          "texture": "Textures/bat.png"
+          "type": "SpriteAnimationRendererComponent",
+          "texture_frames": "Animations/bat_idle.json",
+          "frames_per_second": 10,
+          "loop": true
         }
       ]
     },
