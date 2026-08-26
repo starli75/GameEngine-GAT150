@@ -43,6 +43,13 @@
           "texture": "Textures/PlayerShip.png"
         },
         {
+          "type": "Box2dPhysicsComponent",
+          "linear_damping": 2.0,
+          "angular_damping": 2.0,
+          "size": [ 48, 48 ],
+          "gravity_scale": 0
+        },
+        {
           "type": "CircleColliderComponent",
           "radius": 40
         }
@@ -67,6 +74,13 @@
         {
           "type": "SpriteRendererComponent",
           "texture": "Textures/EnemyShip.png"
+        },
+        {
+          "type": "Box2dPhysicsComponent",
+          "linear_damping": 2.0,
+          "angular_damping": 2.0,
+          "size": [ 48, 48 ],
+          "gravity_scale": 0
         },
         {
           "type": "CircleColliderComponent",
@@ -94,6 +108,13 @@
         {
           "type": "SpriteRendererComponent",
           "texture": "Textures/PlayerProjectile.png"
+        },
+        {
+          "type": "Box2dPhysicsComponent",
+          "linear_damping": 2.0,
+          "angular_damping": 2.0,
+          "size": [ 48, 48 ],
+          "gravity_scale": 0
         },
         {
           "type": "CircleColliderComponent",

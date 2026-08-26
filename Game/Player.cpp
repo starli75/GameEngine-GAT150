@@ -8,6 +8,7 @@
 #include "Assets.h"
 #include "SpaceGame.h"
 #include "Renderer/ParticleSystem.h"
+#include "Components/PhysicsComponent.h"
 
 FACTORY_REGISTER(Player);
 
@@ -26,14 +27,28 @@ void Player::Update(float dt)
 
 
     float rotate = 0.0f;
-    if (nu::Engine::Get().GetInput().GetKeyDown(SDL_SCANCODE_A)) rotate = -180.0f;
-    if (nu::Engine::Get().GetInput().GetKeyDown(SDL_SCANCODE_D)) rotate = +180.0f;
+    if (nu::Engine::Get().GetInput().GetKeyDown(SDL_SCANCODE_A)) rotate = -40.0f;
+    if (nu::Engine::Get().GetInput().GetKeyDown(SDL_SCANCODE_D)) rotate = +40.0f;
+
+    auto physicsComponent = GetComponent<nu::PhysicsComponent>();
+    if (physicsComponent)
+    {
+        nu::Vector2 forward{ 1,0 }; 
+        nu::Vector2 force = forward.Rotate(m_transform.rotation * nu::DegToRad)* thrust;
+
+        physicsComponent->ApplyForce(force);
+        physicsComponent->ApplyTorque(rotate);
+
+        nu::Vector2 position = physicsComponent->GetPosition();
+
+        position.x = nu::Wrap(0.0f, 1920.0f, m_transform.position.x);
+        position.y = nu::Wrap(0.0f, 1024.0f, m_transform.position.y);
+        physicsComponent->SetPosition(position);
+    }
 
     SetRotation(m_transform.rotation + rotate * dt);
 
-    nu::Vector2 forward{ 1,0 }; 
-    nu::Vector2 velocity = forward.Rotate(m_transform.rotation * nu::DegToRad)* thrust;
-    SetVelocity(velocity * dt);
+    //SetVelocity(velocity * dt);
 
     //Fire
     if (nu::Engine::Get().GetInput().GetKeyPressed(SDL_SCANCODE_L))
@@ -104,6 +119,7 @@ void Player::Update(float dt)
 }
     void Player::OnCollision(Actor* other)
     {
+        return; //NO DEATH OR HEALTH
         if (other->GetName() == "EnemyPrototype")
         {
             m_health -= 25;

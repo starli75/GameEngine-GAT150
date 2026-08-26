@@ -1,13 +1,21 @@
 #pragma once
 #include "PhysicsComponent.h"
+#include "Physics/PhysicsBody.h"
 
 namespace nu
 {
-	class RigidBodyPhysicsComponent : public PhysicsComponent
+	class Box2dPhysicsComponent : public PhysicsComponent
 	{
 	public:
-		// Inherited via PhysicsComponent
+		Box2dPhysicsComponent() = default;
+
+		Box2dPhysicsComponent(const Box2dPhysicsComponent& other);
+
+		CLASS_PROTOTYPE(Box2dPhysicsComponent)
+
+		void Start() override;
 		void Update(float dt) override;
+		void Read(const json::value_t& value) override;
 
 		void ApplyForce(const Vector2& force) override;
 		void SetVelocity(const Vector2& velocity) override;
@@ -20,17 +28,14 @@ namespace nu
 		void SetPosition(const Vector2& position) override;
 		Vector2 GetPosition() const override;
 
-		void Read(const json::value_t& value) override;
-
-	private:
-		Vector2 m_acceleration{ 0.0f, 0.0f };
-		Vector2 m_velocity{ 0.0f, 0.0f };
-
-		float m_angularAcceleration{ 0.0f };
-		float m_angularVelocity{ 0.0f };
-
-		// Inherited via PhysicsComponent
 		void SetRotation(float roation) override;
 		float GetRotation() const override;
+
+	private:
+		Vector2 m_size{ 0, 0 };
+		Vector2 m_scale{ 1, 1 };
+
+		PhysicsBody::PhysicsBodyDef m_bodyDef;
+		std::unique_ptr<PhysicsBody> m_physicsBody;
 	};
 }
