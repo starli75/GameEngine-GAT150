@@ -3,10 +3,30 @@
     {
       "type": "Actor",
       "prototype": false,
-      "speed": 150000.0,
+      "name": "Tilemap",
+      "tag": "Ground",
+      "active": true,
+      "persistent": true,
+      "transform": {
+        "position": [ 0, 0 ],
+        "rotation": 0,
+        "scale": 3
+      },
+      "components": [
+        {
+          "type": "TilemapRendererComponent",
+          "tilemap_name": "tilemap/world.json"
+        }
+      ]
+    },
+    {
+      "type": "Actor",
+      "prototype": false,
+      "speed": 1500.0,
       "name": "Bat",
       "tag": "Enemy",
       "active": true,
+      "persistent": true,
       "transform": {
         "position": [ 200, 200 ],
         "rotation": 0,
@@ -21,7 +41,7 @@
         }
       ]
     },
-    
+
     {
       "type": "Player",
       "prototype": true,
@@ -29,7 +49,7 @@
       "tag": "Player",
       "active": true,
       "health": 100,
-      "speed": 150000.0,
+      "speed": 1500.0,
       "damping": 3,
       "texture": "Textures/PlayerShip.png",
       "transform": {
@@ -48,10 +68,6 @@
           "angular_damping": 2.0,
           "size": [ 48, 48 ],
           "gravity_scale": 0
-        },
-        {
-          "type": "CircleColliderComponent",
-          "radius": 40
         }
       ]
     },
@@ -61,7 +77,7 @@
       "name": "EnemyPrototype",
       "tag": "Enemy",
       "active": true,
-      "speed": 30000.0,
+      "speed": 300.0,
       "points": 50,
       "health": 1,
       "damping": 3,
@@ -81,10 +97,6 @@
           "angular_damping": 2.0,
           "size": [ 48, 48 ],
           "gravity_scale": 0
-        },
-        {
-          "type": "CircleColliderComponent",
-          "radius": 40
         }
       ]
     },
@@ -114,11 +126,8 @@
           "linear_damping": 2.0,
           "angular_damping": 2.0,
           "size": [ 48, 48 ],
-          "gravity_scale": 0
-        },
-        {
-          "type": "CircleColliderComponent",
-          "radius": 24
+          "gravity_scale": 0,
+          "is_sensor": true
         }
       ]
     }

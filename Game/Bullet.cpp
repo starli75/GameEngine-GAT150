@@ -14,6 +14,12 @@ void Bullet::Update(float dt)
 		nu::Vector2 forward{ 1,0 };
 		nu::Vector2 velocity = forward.Rotate(m_transform.rotation * nu::DegToRad) * m_speed;
 		physicsComponent->SetVelocity(velocity);
+
+		nu::Vector2 position = physicsComponent->GetPosition();
+
+		position.x = nu::Wrap(0.0f, 1920.0f, position.x);
+		position.y = nu::Wrap(0.0f, 1024.0f, position.y);
+		physicsComponent->SetPosition(position);
 	}
 
 	//SetVelocity(velocity);
