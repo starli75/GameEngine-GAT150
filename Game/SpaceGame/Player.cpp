@@ -5,7 +5,6 @@
 #include "Engine.h"
 #include "Renderer/Model.h"
 #include "Bullet.h"
-#include "Assets.h"
 #include "SpaceGame.h"
 #include "Renderer/ParticleSystem.h"
 #include "Components/PhysicsComponent.h"
