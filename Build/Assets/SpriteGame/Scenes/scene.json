@@ -34,10 +34,22 @@
       },
       "components": [
         {
-          "type": "SpriteAnimationRendererComponent",
-          "texture_frames": "Animations/bat_idle.json",
-          "frames_per_second": 10,
-          "loop": true
+          "type": "SpriteAnimatorRendererComponent",
+          "default_animation": "idle",
+          "animations": [
+            {
+              "name": "idle",
+              "texture_frames": "Animations/spr_player_idle_right.json",
+              "frames_per_second": 10,
+              "loop": true
+            },
+            {
+              "name": "run",
+              "texture_frames": "Animations/spr_player_walk.json",
+              "frames_per_second": 10,
+              "loop": true
+            }
+          ]
         }
       ]
     },

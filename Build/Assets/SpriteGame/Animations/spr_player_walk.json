@@ -1,0 +1,7 @@
+{
+  "texture_name": "Textures/Player_SpriteSheet.png",
+  "columns": 8,
+  "rows": 12,
+  "start_frame": 80,
+  "total_frames": 8
+}
