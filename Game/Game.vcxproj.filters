@@ -61,6 +61,15 @@
     <ClCompile Include="SpriteGame\SpriteGame.cpp">
       <Filter>SpriteGame</Filter>
     </ClCompile>
+    <ClCompile Include="SpriteGame\PlayerController.cpp">
+      <Filter>SpriteGame</Filter>
+    </ClCompile>
+    <ClCompile Include="SpriteGame\EnemyController.cpp">
+      <Filter>SpriteGame</Filter>
+    </ClCompile>
+    <ClCompile Include="SpriteGame\FlyingEnemyController.cpp">
+      <Filter>SpriteGame</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SpaceGame\Enemy.h">
@@ -76,6 +85,15 @@
       <Filter>SpaceGame</Filter>
     </ClInclude>
     <ClInclude Include="SpriteGame\SpriteGame.h">
+      <Filter>SpriteGame</Filter>
+    </ClInclude>
+    <ClInclude Include="SpriteGame\EnemyController.h">
+      <Filter>SpriteGame</Filter>
+    </ClInclude>
+    <ClInclude Include="SpriteGame\PlayerController.h">
+      <Filter>SpriteGame</Filter>
+    </ClInclude>
+    <ClInclude Include="SpriteGame\FlyingEnemyController.h">
       <Filter>SpriteGame</Filter>
     </ClInclude>
   </ItemGroup>
@@ -94,6 +112,9 @@
     </None>
     <None Include="..\Build\Assets\SpriteGame\Animations\spr_player_idle_right.json">
       <Filter>Assets\SpriteGame\Animations</Filter>
+    </None>
+    <None Include="..\Build\Assets\SpriteGame\Scenes\level.json">
+      <Filter>Assets\SpriteGame\Scenes</Filter>
     </None>
   </ItemGroup>
 </Project>

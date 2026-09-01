@@ -47,6 +47,7 @@ void SpriteGame::Update(float dt)
 		break;
 	case SpriteGame::GameState::StartLevel:
 		m_scene->RemoveAllActors();
+		m_scene->Load("scenes/level.json");
 		SpawnPlayer();
 		m_gamestate = GameState::Game;
 		break;
@@ -77,6 +78,8 @@ void SpriteGame::Update(float dt)
 
 void SpriteGame::Draw(nu::Renderer& renderer)
 {
+	renderer.EnableCamera(false);
+
 	renderer.DrawTexture(*nu::Resources().Get<Texture>("Textures/background.jpg", Engine::Get().GetRenderer()), 1000, 700);
 	switch (m_gamestate)
 	{
@@ -114,6 +117,8 @@ void SpriteGame::Draw(nu::Renderer& renderer)
 	default:
 		break;
 	}
+	//Start up camera
+	renderer.EnableCamera();
 	Game::Draw(renderer);
 }
 
@@ -154,17 +159,4 @@ void SpriteGame::SpawnEnemy()
 
 		m_scene->AddActor(std::move(actor));
 	}
-	/*
-	EnemyDesc enemyDesc;
-	enemyDesc.name = "Enemy";
-	//enemyDesc.model = assets::enemyModel;
-	enemyDesc.texture = Resources().Get<Texture>("Textures/EnemyShip.png", Engine::Get().GetRenderer());
-	enemyDesc.transform = Transform{ Vector2{ nu::RandomFloat((float)Engine::Get().GetRenderer().GetWidth()), nu::RandomFloat((float)Engine::Get().GetRenderer().GetHeight())}, 90.0f, 1.0f };
-	enemyDesc.velocity = Vector2{ 0.0f, 0.0f };
-	enemyDesc.speed = RandomFloat(10000.0f, 15000.0f);
-	enemyDesc.damping = 3.0f;
-
-
-	m_scene->AddActor(std::move(std::make_unique<Enemy>(enemyDesc)));
-	*/
 }
