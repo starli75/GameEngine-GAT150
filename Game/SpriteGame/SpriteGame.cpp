@@ -144,7 +144,7 @@ void SpriteGame::SpawnPlayer()
 
 void SpriteGame::SpawnEnemy()
 {
-	int enemyIndex = nu::RandomInt(2);
+	/*int enemyIndex = nu::RandomInt(2);
 	if (enemyIndex == 0)
 	{
 		auto actor = Factory::Instance().Create<Actor>("EnemyPrototype");
@@ -158,5 +158,5 @@ void SpriteGame::SpawnEnemy()
 		actor->SetPosition({ nu::RandomFloat(1024.0f), nu::RandomFloat(800.0f) });
 
 		m_scene->AddActor(std::move(actor));
-	}
+	}*/
 }

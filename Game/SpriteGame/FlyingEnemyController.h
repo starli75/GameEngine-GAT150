@@ -12,7 +12,7 @@ class FlyingEnemyController : public nu::Actor
 public:
 	CLASS_PROTOTYPE(FlyingEnemyController)
 
-		void Start() override;
+	void Start() override;
 	void Update(float dt) override;
 
 	void OnCollision(nu::Actor* other) override;

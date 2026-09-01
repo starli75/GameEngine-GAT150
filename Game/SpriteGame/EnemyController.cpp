@@ -34,14 +34,6 @@ void EnemyController::Update(float dt)
 		else dir = 1.0f;
 	}
 
-
-	if (nu::Engine::Get().GetInput().GetKeyDown(SDL_SCANCODE_A)) dir = -1.0f;
-	if (nu::Engine::Get().GetInput().GetKeyDown(SDL_SCANCODE_D)) dir = +1.0f;
-	if (nu::Engine::Get().GetInput().GetKeyPressed(SDL_SCANCODE_SPACE))
-	{
-		velocity.y = -400.0f;
-	}
-
 	if (dir != 0.0f)
 	{
 		velocity.x = dir * 100.0f;

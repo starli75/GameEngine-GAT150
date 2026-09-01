@@ -47,7 +47,7 @@
       "transform": {
         "position": [ 640, 512 ],
         "rotation": 0,
-        "scale": 1
+        "scale": 3
       },
       "components": [
         {
@@ -67,17 +67,17 @@
               "loop": true
             }
           ]
+        },
+        {
+          "type": "Box2dPhysicsComponent",
+          "linear_damping": 2.0,
+          "angular_damping": 2.0,
+          "shape": "capsule",
+          "size": [ 16, 20 ],
+          "constrain_angle": true,
+          "gravity_scale": 1
         }
       ]
-    },
-    {
-      "type": "Box2DPhysicsComponent",
-      "linear_damping": 2.0,
-      "angular_damping": 2.0,
-      "shape": "capsule",
-      "size": [ 48, 48 ],
-      "constrain_angle": true,
-      "gravity_scale": 1
     },
 
     {
@@ -92,7 +92,7 @@
       "transform": {
         "position": [ 640, 512 ],
         "rotation": 0,
-        "scale": 1
+        "scale": 3
       },
       "components": [
         {
@@ -112,17 +112,17 @@
               "loop": true
             }
           ]
+        },
+        {
+          "type": "Box2dPhysicsComponent",
+          "linear_damping": 2.0,
+          "angular_damping": 2.0,
+          "shape": "capsule",
+          "size": [ 16, 20 ],
+          "constrain_angle": true,
+          "gravity_scale": 1
         }
       ]
-    },
-    {
-      "type": "Box2DPhysicsComponent",
-      "linear_damping": 2.0,
-      "angular_damping": 2.0,
-      "shape": "capsule",
-      "size": [ 48, 48 ],
-      "constrain_angle": true,
-      "gravity_scale": 1
     },
 
     {
@@ -157,17 +157,17 @@
               "loop": true
             }
           ]
+        },
+        {
+          "type": "Box2dPhysicsComponent",
+          "linear_damping": 2.0,
+          "angular_damping": 2.0,
+          "shape": "capsule",
+          "size": [ 16, 20 ],
+          "constrain_angle": true,
+          "gravity_scale": 1
         }
       ]
-    },
-    {
-      "type": "Box2DPhysicsComponent",
-      "linear_damping": 2.0,
-      "angular_damping": 2.0,
-      "shape": "capsule",
-      "size": [ 48, 48 ],
-      "constrain_angle": true,
-      "gravity_scale": 1
     }
 
   ]
