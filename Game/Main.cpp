@@ -31,10 +31,6 @@ int main()
     //Photoshop
     std::vector<Vector2> points;
 
-    // create texture, using shared_ptr so texture can be shared
-    std::shared_ptr<Texture> texture = std::make_shared<Texture>();
-    texture->Load("Textures/PlayerShip.png", Engine::Get().GetRenderer());
-
     //MAIN LOOP;
     bool quit = false;
     while (!quit) {
@@ -62,9 +58,6 @@ int main()
         //RENDER
         Engine::Get().GetRenderer().SetColorFloat(0, 0, 0);
         Engine::Get().GetRenderer().Clear();
-
-        // TODO:: get engine renderer.DrawTexture(...get() texture pointer..., 30, 30);
-        Engine::Get().GetRenderer().DrawTexture(*Resources().Get<Texture>("Textures/PlayerShip.png", Engine::Get().GetRenderer()), 30, 30, 45.0f);
 
         //Draw text
        

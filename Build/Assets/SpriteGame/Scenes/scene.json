@@ -53,6 +53,7 @@
         {
           "type": "SpriteAnimatorRendererComponent",
           "default_animation": "idle",
+          "origin":  [0.5, 0.5],
           "animations": [
             {
               "name": "idle",
@@ -65,6 +66,18 @@
               "texture_frames": "Animations/spr_player_walk.json",
               "frames_per_second": 10,
               "loop": true
+            },
+            {
+              "name": "attack",
+              "texture_frames": "Animations/spr_player_walk.json",
+              "frames_per_second": 10,
+              "loop": false
+            },
+            {
+              "name": "death",
+              "texture_frames": "Animations/spr_player_walk.json",
+              "frames_per_second": 10,
+              "loop": false
             }
           ]
         },
@@ -86,7 +99,7 @@
       "name": "EnemyPrototype",
       "tag": "Enemy",
       "active": true,
-      "health": 100,
+      "health": 15,
       "speed": 1500.0,
       "damping": 3,
       "transform": {
@@ -98,6 +111,7 @@
         {
           "type": "SpriteAnimatorRendererComponent",
           "default_animation": "idle",
+          "origin": [ 0.5, 0.5 ],
           "animations": [
             {
               "name": "idle",
@@ -110,6 +124,18 @@
               "texture_frames": "Animations/spr_player_walk.json",
               "frames_per_second": 10,
               "loop": true
+            },
+            {
+              "name": "attack",
+              "texture_frames": "Animations/spr_player_walk.json",
+              "frames_per_second": 10,
+              "loop": false
+            },
+            {
+              "name": "hit",
+              "texture_frames": "Animations/spr_player_walk.json",
+              "frames_per_second": 10,
+              "loop": false
             }
           ]
         },
@@ -131,7 +157,7 @@
       "name": "FlyingEnemyPrototype",
       "tag": "FlyingEnemy",
       "active": true,
-      "health": 100,
+      "health": 15,
       "speed": 1500.0,
       "damping": 3,
       "transform": {
@@ -143,6 +169,7 @@
         {
           "type": "SpriteAnimatorRendererComponent",
           "default_animation": "idle",
+          "origin": [ 0.5, 0.5 ],
           "animations": [
             {
               "name": "idle",
@@ -151,10 +178,16 @@
               "loop": true
             },
             {
-              "name": "run",
+              "name": "attack",
               "texture_frames": "Animations/spr_player_walk.json",
               "frames_per_second": 10,
-              "loop": true
+              "loop": false
+            },
+            {
+              "name": "hit",
+              "texture_frames": "Animations/spr_player_walk.json",
+              "frames_per_second": 10,
+              "loop": false
             }
           ]
         },
@@ -168,7 +201,35 @@
           "gravity_scale": 1
         }
       ]
+    },
+    {
+      "type": "Damager",
+      "prototype": true,
+      "name": "DamagerPrototype",
+      "tag": "Enemy",
+      "active": true,
+      "damage": 5,
+      "lifespan":  0.1,
+      "transform": {
+        "position": [ 640, 512 ],
+        "rotation": 0,
+        "scale": 1
+      },
+      "components": [
+        {
+          "type": "SpriteRendererComponent",
+          "texture": "Textures/preview.gif"
+        },
+        {
+          "type": "Box2dPhysicsComponent",
+          "linear_damping": 2.0,
+          "angular_damping": 2.0,
+          "shape": "capsule",
+          "size": [ 16, 20 ],
+          "constrain_angle": true,
+          "gravity_scale": 1
+        }
+      ]
     }
-
   ]
 }

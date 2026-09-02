@@ -80,7 +80,7 @@ void SpriteGame::Draw(nu::Renderer& renderer)
 {
 	renderer.EnableCamera(false);
 
-	renderer.DrawTexture(*nu::Resources().Get<Texture>("Textures/background.jpg", Engine::Get().GetRenderer()), 1000, 700);
+	renderer.DrawTexture(*nu::Resources().Get<Texture>("Textures/bg03.png", Engine::Get().GetRenderer()), 1000, 700);
 	switch (m_gamestate)
 	{
 	case SpriteGame::GameState::Title:
@@ -144,10 +144,10 @@ void SpriteGame::SpawnPlayer()
 
 void SpriteGame::SpawnEnemy()
 {
-	/*int enemyIndex = nu::RandomInt(2);
+	int enemyIndex = nu::RandomInt(2);
 	if (enemyIndex == 0)
 	{
-		auto actor = Factory::Instance().Create<Actor>("EnemyPrototype");
+		auto actor = Factory::Instance().Create<Actor>("FlyingEnemyPrototype");
 		actor->SetPosition({nu::RandomFloat(1024.0f), nu::RandomFloat(800.0f) });
 
 		m_scene->AddActor(std::move(actor));
@@ -158,5 +158,5 @@ void SpriteGame::SpawnEnemy()
 		actor->SetPosition({ nu::RandomFloat(1024.0f), nu::RandomFloat(800.0f) });
 
 		m_scene->AddActor(std::move(actor));
-	}*/
+	}
 }

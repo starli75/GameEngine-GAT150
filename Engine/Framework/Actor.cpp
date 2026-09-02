@@ -53,7 +53,10 @@ namespace nu
 
         for (auto& component : m_components)
         {
-            component->Update(dt);
+            if (component->IsActive())
+            {
+                component->Update(dt);
+            }
         }
 
         //physics
@@ -69,7 +72,10 @@ namespace nu
             auto rendererComponent = dynamic_cast<RendererComponent*>(component.get());
             if (rendererComponent)
             {
-                rendererComponent->Draw(renderer);
+                if (component->IsActive())
+                {
+                    rendererComponent->Draw(renderer);
+                }
             }
         }
 

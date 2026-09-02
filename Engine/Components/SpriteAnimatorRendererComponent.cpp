@@ -72,6 +72,11 @@ namespace nu
 		m_sourceRect = m_spriteAnimation.textureFrames->GetFrameRect(m_frame);
 	}
 
+	bool SpriteAnimatorRendererComponent::IsAnimationDone() const
+	{
+		return false;
+	}
+
 	void SpriteAnimatorRendererComponent::Read(const json::value_t& value)
 	{
 		SpriteRendererComponent::Read(value);
