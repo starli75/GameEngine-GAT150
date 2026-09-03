@@ -120,5 +120,6 @@
     <None Include="..\Build\Assets\SpriteGame\Scenes\level.json">
       <Filter>Assets\SpriteGame\Scenes</Filter>
     </None>
+    <None Include="..\README.md" />
   </ItemGroup>
 </Project>

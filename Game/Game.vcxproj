@@ -195,6 +195,7 @@
     <None Include="..\Build\Assets\SpriteGame\Scenes\level.json" />
     <None Include="..\Build\Assets\SpriteGame\Scenes\scene.json" />
     <None Include="..\Build\Assets\SpriteGame\TileMaps\world.json" />
+    <None Include="..\README.md" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
