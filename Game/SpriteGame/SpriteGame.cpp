@@ -167,8 +167,8 @@ void SpriteGame::SpawnEnemy()
 
 	m_scene->AddActor(std::move(actorFlying));
 
-	auto actor = Factory::Instance().Create<Actor>("EnemyPrototype");
-	actor->SetPosition({ 640, 400 });
+	//auto actor = Factory::Instance().Create<Actor>("EnemyPrototype");
+	//actor->SetPosition({ 140, 400 });
 
-	m_scene->AddActor(std::move(actor));
+	//m_scene->AddActor(std::move(actor));
 }

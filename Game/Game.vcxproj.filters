@@ -79,9 +79,6 @@
       <Filter>Assets\SpriteGame\Scenes</Filter>
     </None>
     <None Include="..\README.md" />
-    <None Include="..\Build\Assets\SpriteGame\TileMaps\world.json">
-      <Filter>Assets\SpriteGame\Tilemaps</Filter>
-    </None>
     <None Include="..\Build\Assets\SpriteGame\Animations\spr_holly_idle.json">
       <Filter>Assets\SpriteGame\Animations</Filter>
     </None>
@@ -105,6 +102,9 @@
     </None>
     <None Include="..\Build\Assets\SpriteGame\Animations\spr_mush_hop.json">
       <Filter>Assets\SpriteGame\Animations</Filter>
+    </None>
+    <None Include="..\Build\Assets\SpriteGame\TileMaps\world.json">
+      <Filter>Assets\SpriteGame\Tilemaps</Filter>
     </None>
   </ItemGroup>
 </Project>

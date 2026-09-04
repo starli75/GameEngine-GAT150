@@ -1,41 +1,6 @@
 {
   "actors": [
     {
-      "type": "Actor",
-      "prototype": false,
-      "speed": 0.0,
-      "name": "Bat",
-      "tag": "BatPrototype",
-      "active": true,
-      "persistent": true,
-      "transform": {
-        "position": [ 200, 200 ],
-        "rotation": 0,
-        "scale": 3
-      },
-      "components": [
-        {
-          "type": "SpriteAnimatorRendererComponent",
-          "default_animation": "idle",
-          "animations": [
-            {
-              "name": "idle",
-              "texture_frames": "Animations/spr_player_idle_right.json",
-              "frames_per_second": 10,
-              "loop": true
-            },
-            {
-              "name": "run",
-              "texture_frames": "Animations/spr_player_walk.json",
-              "frames_per_second": 10,
-              "loop": true
-            }
-          ]
-        }
-      ]
-    },
-
-    {
       "type": "PlayerController",
       "prototype": true,
       "name": "PlayerPrototype",
@@ -45,7 +10,7 @@
       "speed": 1500.0,
       "damping": 3,
       "transform": {
-        "position": [ 640, 512 ],
+        "position": [ 140, 1012 ],
         "rotation": 0,
         "scale": 3
       },
@@ -103,7 +68,7 @@
       "speed": 0.0,
       "damping": 3,
       "transform": {
-        "position": [ 640, 512 ],
+        "position": [ 340, 1012 ],
         "rotation": 0,
         "scale": 3
       },
