@@ -13,10 +13,9 @@ the level environment.
 
 Gameplay Screenshot
 
-<img width="956" height="508" alt="Screenshot 2026-09-03 230346" src="https://github.com/user-attachments/assets/7064c968-d594-49a3-9db7-04fef9fcc019" />
+<img width="957" height="514" alt="Screenshot 2026-09-03 234622" src="https://github.com/user-attachments/assets/3e4f98d8-6393-4727-95e6-ea9b17a14b2e" />
 
-
-Figure 1. Gameplay screenshot showing the player character, platforms, crates, enemy bat and mushroom, score, and lives interface.
+Figure 1. Gameplay screenshot showing the player character, platforms, crates, enemy bat, score, and lives interface.
 
 Gameplay
 
@@ -28,7 +27,7 @@ Floating grass platforms
 
 Wooden crates used as environmental obstacles
 
-An enemy bat and mushroom
+An enemy bat
 
 A score system
 
