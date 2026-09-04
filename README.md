@@ -16,7 +16,7 @@ Gameplay Screenshot
 <img width="956" height="508" alt="Screenshot 2026-09-03 230346" src="https://github.com/user-attachments/assets/7064c968-d594-49a3-9db7-04fef9fcc019" />
 
 
-Figure 1. Gameplay screenshot showing the player character, platforms, crates, enemy bat, score, and lives interface.
+Figure 1. Gameplay screenshot showing the player character, platforms, crates, enemy bat and mushroom, score, and lives interface.
 
 Gameplay
 
