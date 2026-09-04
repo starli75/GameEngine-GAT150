@@ -190,6 +190,14 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Build\Assets\SpriteGame\Animations\bat_idle.json" />
+    <None Include="..\Build\Assets\SpriteGame\Animations\spr_holly_attack.json" />
+    <None Include="..\Build\Assets\SpriteGame\Animations\spr_holly_idle.json" />
+    <None Include="..\Build\Assets\SpriteGame\Animations\spr_holly_run.json" />
+    <None Include="..\Build\Assets\SpriteGame\Animations\spr_mush_attack.json" />
+    <None Include="..\Build\Assets\SpriteGame\Animations\spr_mush_death.json" />
+    <None Include="..\Build\Assets\SpriteGame\Animations\spr_mush_hop.json" />
+    <None Include="..\Build\Assets\SpriteGame\Animations\spr_mush_hurt.json" />
+    <None Include="..\Build\Assets\SpriteGame\Animations\spr_mush_idle.json" />
     <None Include="..\Build\Assets\SpriteGame\Animations\spr_player_idle_right.json" />
     <None Include="..\Build\Assets\SpriteGame\Animations\spr_player_walk.json" />
     <None Include="..\Build\Assets\SpriteGame\Scenes\level.json" />

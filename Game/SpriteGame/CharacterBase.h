@@ -18,5 +18,6 @@ protected:
 	State m_state = State::Move;
 	float m_stateTimer = 0.0f;
 	float m_health{ 10.0f };
+	float m_speed{ 10.0f };
 };
 

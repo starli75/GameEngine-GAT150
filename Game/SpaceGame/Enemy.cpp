@@ -18,8 +18,8 @@ void Enemy::Update(float dt)
         if (physicsComponent)
         {
             nu::Vector2 forward{ 1,0 };
-            nu::Vector2 force = forward.Rotate(m_transform.rotation * nu::DegToRad) * m_speed;
-            physicsComponent->ApplyForce(force);
+            //nu::Vector2 force = forward.Rotate(m_transform.rotation * nu::DegToRad) * m_speed;
+            //physicsComponent->ApplyForce(force);
 
             nu::Vector2 direction = (player->GetTransform().position - m_transform.position);
             float rotation = direction.Angle();
@@ -73,6 +73,6 @@ void Enemy::Read(const nu::json::value_t& value)
 {
     Actor::Read(value);
 
-    JSON_READ_NAME(value, "speed", m_speed);
+    //JSON_READ_NAME(value, "speed", m_speed);
     JSON_READ_NAME(value, "points", m_points);
 }

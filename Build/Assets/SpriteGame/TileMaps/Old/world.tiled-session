@@ -1,0 +1,37 @@
+{
+    "activeFile": "world.tmx",
+    "expandedProjectPaths": [
+        "."
+    ],
+    "fileStates": {
+        "ground.tsx": {
+            "scaleInDock": 2,
+            "scaleInEditor": 1
+        },
+        "world.tmx": {
+            "scale": 1.5378124999999998,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 250.03048160942902,
+                "y": 160.2926234505182
+            }
+        }
+    },
+    "last.exportedFilePath": "C:/Users/vvega/Desktop/Year 2/GAT150/Game/Build/Assets/TileMaps",
+    "last.imagePath": "C:/Users/vvega/Desktop/Year 2/GAT150/Game/Build/Assets/Textures",
+    "map.lastUsedExportFilter": "JSON map files (*.tmj *.json)",
+    "map.lastUsedFormat": "tmx",
+    "map.tileHeight": 16,
+    "map.tileWidth": 16,
+    "openFiles": [
+        "ground.tsx",
+        "world.tmx"
+    ],
+    "project": "world.tiled-project",
+    "property.type": "string",
+    "recentFiles": [
+        "ground.tsx",
+        "world.tmx"
+    ],
+    "tileset.lastUsedFormat": "tsx"
+}

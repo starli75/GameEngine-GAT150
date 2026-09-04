@@ -51,7 +51,6 @@ void FlyingEnemyController::Update(float dt)
 		}
 		break;
 	case CharacterBase::State::Attack:
-		break;
 	case CharacterBase::State::Hit:
 		if (m_rendererComponent->IsAnimationDone())
 		{

@@ -14,8 +14,8 @@ public:
     Enemy() = default;
 
     Enemy(const EnemyDesc& enemyDesc) :
-        Actor{ enemyDesc },
-        m_speed{ enemyDesc.speed }
+        Actor{ enemyDesc }
+        //m_speed{ enemyDesc.speed }
     {
     }
     CLASS_PROTOTYPE(Enemy)
@@ -28,6 +28,6 @@ public:
 
 private:
     int m_ammo = 0;
-    float m_speed = 2000.0f;
+    //float m_speed = 2000.0f;
     int m_points = 100;
 };

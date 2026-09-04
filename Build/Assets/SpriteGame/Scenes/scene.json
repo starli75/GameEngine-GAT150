@@ -3,7 +3,7 @@
     {
       "type": "Actor",
       "prototype": false,
-      "speed": 1500.0,
+      "speed": 150.0,
       "name": "Bat",
       "tag": "BatPrototype",
       "active": true,
@@ -57,19 +57,19 @@
           "animations": [
             {
               "name": "idle",
-              "texture_frames": "Animations/spr_player_idle_right.json",
+              "texture_frames": "Animations/spr_holly_idle.json",
               "frames_per_second": 10,
               "loop": true
             },
             {
               "name": "run",
-              "texture_frames": "Animations/spr_player_walk.json",
+              "texture_frames": "Animations/spr_holly_run.json",
               "frames_per_second": 10,
               "loop": true
             },
             {
               "name": "attack",
-              "texture_frames": "Animations/spr_player_walk.json",
+              "texture_frames": "Animations/spr_holly_attack.json",
               "frames_per_second": 10,
               "loop": false
             },
@@ -86,7 +86,7 @@
           "linear_damping": 2.0,
           "angular_damping": 2.0,
           "shape": "capsule",
-          "size": [ 16, 20 ],
+          "size": [ 20, 32 ],
           "constrain_angle": true,
           "gravity_scale": 1
         }
@@ -100,7 +100,7 @@
       "tag": "Enemy",
       "active": true,
       "health": 15,
-      "speed": 1500.0,
+      "speed": 0.0,
       "damping": 3,
       "transform": {
         "position": [ 640, 512 ],
@@ -115,25 +115,31 @@
           "animations": [
             {
               "name": "idle",
-              "texture_frames": "Animations/spr_player_idle_right.json",
+              "texture_frames": "Animations/spr_mush_idle.json",
               "frames_per_second": 10,
               "loop": true
             },
             {
               "name": "run",
-              "texture_frames": "Animations/spr_player_walk.json",
+              "texture_frames": "Animations/spr_mush_hop.json",
               "frames_per_second": 10,
               "loop": true
             },
             {
               "name": "attack",
-              "texture_frames": "Animations/spr_player_walk.json",
+              "texture_frames": "Animations/spr_mush_attack.json",
               "frames_per_second": 10,
               "loop": false
             },
             {
               "name": "hit",
-              "texture_frames": "Animations/spr_player_walk.json",
+              "texture_frames": "Animations/spr_mush_hurt.json",
+              "frames_per_second": 10,
+              "loop": false
+            },
+            {
+              "name": "death",
+              "texture_frames": "Animations/spr_mush_death.json",
               "frames_per_second": 10,
               "loop": false
             }
@@ -158,12 +164,12 @@
       "tag": "FlyingEnemy",
       "active": true,
       "health": 15,
-      "speed": 1500.0,
+      "speed": 0.0,
       "damping": 3,
       "transform": {
         "position": [ 640, 512 ],
         "rotation": 0,
-        "scale": 1
+        "scale": 3
       },
       "components": [
         {
@@ -173,7 +179,7 @@
           "animations": [
             {
               "name": "idle",
-              "texture_frames": "Animations/spr_player_idle_right.json",
+              "texture_frames": "Animations/bat_idle.json",
               "frames_per_second": 10,
               "loop": true
             },
@@ -218,16 +224,7 @@
       "components": [
         {
           "type": "SpriteRendererComponent",
-          "texture": "Textures/preview.gif"
-        },
-        {
-          "type": "Box2dPhysicsComponent",
-          "linear_damping": 2.0,
-          "angular_damping": 2.0,
-          "shape": "capsule",
-          "size": [ 16, 20 ],
-          "constrain_angle": true,
-          "gravity_scale": 1
+          "texture": "Textures/PlayerProjectile.png"
         }
       ]
     }

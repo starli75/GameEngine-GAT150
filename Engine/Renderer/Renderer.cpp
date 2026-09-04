@@ -136,7 +136,7 @@ namespace nu
         destRect.h = size.y * scale;
 
         destRect.x = (x - cameraX) - (destRect.w * origin.x);
-        destRect.y = (y - cameraX) - (destRect.h * origin.y);
+        destRect.y = (y - cameraY) - (destRect.h * origin.y);
 
         // https://wiki.libsdl.org/SDL3/SDL_RenderTexture
         SDL_RenderTextureRotated(m_renderer, texture.m_texture, NULL, &destRect, angle, NULL, (flipH) ? SDL_FLIP_HORIZONTAL : SDL_FLIP_NONE);

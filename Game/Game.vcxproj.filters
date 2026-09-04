@@ -11,20 +11,8 @@
     <Filter Include="SpriteGame">
       <UniqueIdentifier>{76972055-f903-4312-a20f-b7ef5c815718}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Assets\SpaceGame">
-      <UniqueIdentifier>{352ddbbc-6807-4045-b7f5-39dfd6a60062}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Assets\SpriteGame">
       <UniqueIdentifier>{c1d572fe-c1fe-42ce-8eac-59dae2c81560}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Assets\SpaceGame\Animations">
-      <UniqueIdentifier>{6ef6b4f2-0693-4e58-8505-1897bc360177}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Assets\SpaceGame\Scenes">
-      <UniqueIdentifier>{25638767-9395-48a4-8820-7962bc263c7c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Assets\SpaceGame\Tilemaps">
-      <UniqueIdentifier>{a4205c76-d316-415c-ab41-424c4f06c4df}</UniqueIdentifier>
     </Filter>
     <Filter Include="Assets\SpriteGame\Animations">
       <UniqueIdentifier>{8c26ec2a-4de6-434d-b1ef-0afbe94deb8c}</UniqueIdentifier>
@@ -105,9 +93,6 @@
     <None Include="..\Build\Assets\SpriteGame\Animations\bat_idle.json">
       <Filter>Assets\SpriteGame\Animations</Filter>
     </None>
-    <None Include="..\Build\Assets\SpriteGame\TileMaps\world.json">
-      <Filter>Assets\SpriteGame\Tilemaps</Filter>
-    </None>
     <None Include="..\Build\Assets\SpriteGame\Scenes\scene.json">
       <Filter>Assets\SpriteGame\Scenes</Filter>
     </None>
@@ -121,5 +106,32 @@
       <Filter>Assets\SpriteGame\Scenes</Filter>
     </None>
     <None Include="..\README.md" />
+    <None Include="..\Build\Assets\SpriteGame\TileMaps\world.json">
+      <Filter>Assets\SpriteGame\Tilemaps</Filter>
+    </None>
+    <None Include="..\Build\Assets\SpriteGame\Animations\spr_holly_idle.json">
+      <Filter>Assets\SpriteGame\Animations</Filter>
+    </None>
+    <None Include="..\Build\Assets\SpriteGame\Animations\spr_holly_run.json">
+      <Filter>Assets\SpriteGame\Animations</Filter>
+    </None>
+    <None Include="..\Build\Assets\SpriteGame\Animations\spr_holly_attack.json">
+      <Filter>Assets\SpriteGame\Animations</Filter>
+    </None>
+    <None Include="..\Build\Assets\SpriteGame\Animations\spr_mush_attack.json">
+      <Filter>Assets\SpriteGame\Animations</Filter>
+    </None>
+    <None Include="..\Build\Assets\SpriteGame\Animations\spr_mush_death.json">
+      <Filter>Assets\SpriteGame\Animations</Filter>
+    </None>
+    <None Include="..\Build\Assets\SpriteGame\Animations\spr_mush_hurt.json">
+      <Filter>Assets\SpriteGame\Animations</Filter>
+    </None>
+    <None Include="..\Build\Assets\SpriteGame\Animations\spr_mush_idle.json">
+      <Filter>Assets\SpriteGame\Animations</Filter>
+    </None>
+    <None Include="..\Build\Assets\SpriteGame\Animations\spr_mush_hop.json">
+      <Filter>Assets\SpriteGame\Animations</Filter>
+    </None>
   </ItemGroup>
 </Project>

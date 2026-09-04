@@ -14,14 +14,14 @@ bool SpriteGame::Initialize()
 
 	m_scene = std::make_unique<Scene>();
 	m_scene->SetGame(this);
-	m_scene->Load("scenes/scene.json");
+	//m_scene->Load("scenes/scene.json");
 
 	std::string fontName = "fonts/Blaster.ttf";
 	std::string titleIDString = "title_font";
 	std::string gameIDString = "game_font";
 
 	m_titleText = new Text(Resources().GetWithID<Font>(titleIDString, fontName, 100.0f));
-	m_titleText->Create(Engine::Get().GetRenderer(), "Space Game", Color{ 1.0f, 1.0f, 1.0f });
+	m_titleText->Create(Engine::Get().GetRenderer(), "Sprite Game", Color{ 1.0f, 1.0f, 1.0f });
 
 	m_scoreText = new Text(Resources().GetWithID<Font>(gameIDString, fontName, 32.0f));
 	Engine::Get().GetAudio().AddSound("AsteroidTitle", "audio/AsteroidTitle.mp3");
@@ -48,6 +48,7 @@ void SpriteGame::Update(float dt)
 	case SpriteGame::GameState::StartLevel:
 		m_scene->RemoveAllActors();
 		m_scene->Load("scenes/level.json");
+		m_scene->Load("scenes/scene.json");
 		SpawnPlayer();
 		m_gamestate = GameState::Game;
 		break;
@@ -55,7 +56,7 @@ void SpriteGame::Update(float dt)
 		m_spawnTimer -= dt;
 		if (m_spawnTimer <= 0.0f)
 		{
-			m_spawnTimer = nu::RandomFloat(3.0f, 5.0f);
+			m_spawnTimer = nu::RandomFloat(10.0f, 20.0f);
 			SpawnEnemy();
 
 		}
@@ -80,12 +81,12 @@ void SpriteGame::Draw(nu::Renderer& renderer)
 {
 	renderer.EnableCamera(false);
 
-	renderer.DrawTexture(*nu::Resources().Get<Texture>("Textures/bg03.png", Engine::Get().GetRenderer()), 1000, 700);
+	renderer.DrawTexture(*nu::Resources().Get<Texture>("Textures/Blue.png", Engine::Get().GetRenderer()), 1000, 500, 0.0f, 35.0f);
 	switch (m_gamestate)
 	{
 	case SpriteGame::GameState::Title:
 		//Draw title
-		m_titleText->Draw(renderer, 600, 400);
+		m_titleText->Draw(renderer, 690, 450);
 		break;
 	case SpriteGame::GameState::StartGame:
 		break;
@@ -144,8 +145,9 @@ void SpriteGame::SpawnPlayer()
 
 void SpriteGame::SpawnEnemy()
 {
-	int enemyIndex = nu::RandomInt(2);
-	if (enemyIndex == 0)
+	//Random Enemy
+	//int enemyIndex = nu::RandomInt(2);
+	/*if (enemyIndex == 0)
 	{
 		auto actor = Factory::Instance().Create<Actor>("FlyingEnemyPrototype");
 		actor->SetPosition({nu::RandomFloat(1024.0f), nu::RandomFloat(800.0f) });
@@ -158,5 +160,15 @@ void SpriteGame::SpawnEnemy()
 		actor->SetPosition({ nu::RandomFloat(1024.0f), nu::RandomFloat(800.0f) });
 
 		m_scene->AddActor(std::move(actor));
-	}
+	}*/
+
+	auto actorFlying = Factory::Instance().Create<Actor>("FlyingEnemyPrototype");
+	actorFlying->SetPosition({ 640, 400 });
+
+	m_scene->AddActor(std::move(actorFlying));
+
+	auto actor = Factory::Instance().Create<Actor>("EnemyPrototype");
+	actor->SetPosition({ 640, 400 });
+
+	m_scene->AddActor(std::move(actor));
 }

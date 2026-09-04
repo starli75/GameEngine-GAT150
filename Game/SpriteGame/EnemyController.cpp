@@ -52,7 +52,6 @@ void EnemyController::Update(float dt)
 	}
 		break;
 	case CharacterBase::State::Attack:
-		break;
 	case CharacterBase::State::Hit:
 		if (m_rendererComponent->IsAnimationDone())
 		{
@@ -94,6 +93,8 @@ void EnemyController::OnCollision(nu::Actor* other)
 void EnemyController::Read(const nu::json::value_t& value)
 {
 	CharacterBase::Read(value);
+
+	
 }
 
 

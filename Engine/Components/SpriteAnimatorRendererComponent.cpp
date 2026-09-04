@@ -74,7 +74,7 @@ namespace nu
 
 	bool SpriteAnimatorRendererComponent::IsAnimationDone() const
 	{
-		return false;
+		return (m_frame == m_spriteAnimation.textureFrames->GetTotalFrames() - 1);
 	}
 
 	void SpriteAnimatorRendererComponent::Read(const json::value_t& value)

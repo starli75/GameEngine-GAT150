@@ -1,0 +1,7 @@
+{
+  "texture_name": "textures/Mushroom_spike.png",
+  "columns": 10,
+  "rows": 5,
+  "start_frame": 0,
+  "total_frames": 4
+}
