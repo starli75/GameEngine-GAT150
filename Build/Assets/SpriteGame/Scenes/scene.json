@@ -3,7 +3,7 @@
     {
       "type": "Actor",
       "prototype": false,
-      "speed": 150.0,
+      "speed": 0.0,
       "name": "Bat",
       "tag": "BatPrototype",
       "active": true,

@@ -160,10 +160,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="SpaceGame\Bullet.cpp" />
-    <ClCompile Include="SpaceGame\Enemy.cpp" />
-    <ClCompile Include="SpaceGame\Player.cpp" />
-    <ClCompile Include="SpaceGame\SpaceGame.cpp" />
     <ClCompile Include="SpriteGame\CharacterBase.cpp" />
     <ClCompile Include="SpriteGame\Damager.cpp" />
     <ClCompile Include="SpriteGame\EnemyController.cpp" />
@@ -177,10 +173,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="SpaceGame\Bullet.h" />
-    <ClInclude Include="SpaceGame\Enemy.h" />
-    <ClInclude Include="SpaceGame\Player.h" />
-    <ClInclude Include="SpaceGame\SpaceGame.h" />
     <ClInclude Include="SpriteGame\CharacterBase.h" />
     <ClInclude Include="SpriteGame\Damager.h" />
     <ClInclude Include="SpriteGame\EnemyController.h" />
